@@ -1,0 +1,31 @@
+!! black dark/light
+*color0:                          #272A28
+*color8:                          #5B5E52
+
+!! red dark/light
+*color1:                          #C9B7BE
+*color9:                          #C9B7BE
+
+!! green dark/light
+*color2:                          #9E6508
+*color10:                         #7C5E89
+
+!! yellow dark/light
+*color3:                          #C9B7BE
+*color11:                         #C9B7BE
+
+!! blue dark/light
+*color4:                          #BF8F1D
+*color12:                         #C9B7BE
+
+!! magenta dark/light
+*color5:                          #C9B7BE
+*color13:                         #C9B7BE
+
+!! cyan dark/light
+*color6:                          #C9B7BE
+*color14:                         #C9B7BE
+
+!! white dark/light
+*color7:                          #D8A514
+*color15:                         #D8A514
