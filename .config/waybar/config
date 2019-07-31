@@ -1,12 +1,16 @@
+
+//old colors
+// #f53c3c mpd green
+
 {
-    "layer": "bottom", // Waybar at top layer
+    "layer": "bottom", // Waybar at bottom layer under dmenu
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 19, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "custom/media"],
     //"modules-center": ["sway/window"],
-    "modules-right": ["mpd", "pulseaudio", "network", "cpu", "temperature", "battery", "clock", "tray"],
+    "modules-right": ["mpd", "pulseaudio", "network", "battery", "clock", "tray"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -36,7 +40,7 @@
             "on": " "
         },
         "random-icons": {
-            "off": "<span color=\"#f53c3c\"></span> ",
+            "off": "<span color=\"#412041\"></span> ",
             "on": " "
         },
         "repeat-icons": {
@@ -106,7 +110,7 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-wifi": "{essid} ",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",

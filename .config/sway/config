@@ -25,6 +25,16 @@ set $menu dmenu_path | dmenu_recency | xargs swaymsg exec --
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 output * bg /home/sean/Pictures/purple-flower.jpg fill
 
+
+set $dpurple  #412041
+set $lpurple  #93679B
+set $dorange  #C06B00
+set $yellow   #EEB702
+set $gray     #747768
+set $dgray    #31342E
+set $slate    #252827
+
+
 #remove window title bars
 
 default_border pixel 2
@@ -327,3 +337,10 @@ bindsym $mod+n exec mpc next
 
 
 include /etc/sway/config.d/*
+
+
+set $gnome-schema org.gnome.desktop.interface
+
+exec_always {
+	gsettings set $gnome-schema cursor-theme 'Bridge'
+  }
