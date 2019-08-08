@@ -23,7 +23,7 @@ set $menu dmenu_path | dmenu_recency | xargs swaymsg exec --
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg /home/sean/Pictures/purple-flower.jpg fill
+output * bg /home/sean/Pictures/wallpapers/purple-flower.jpg fill
 
 
 set $dpurple  #412041
@@ -37,13 +37,25 @@ set $slate    #252827
 
 #remove window title bars
 
-default_border pixel 2
-default_floating_border pixel 2
-hide_edge_borders both
+default_border pixel 1
+default_floating_border pixel 1
+hide_edge_borders smart
 
 smart_gaps off
 gaps inner 10
 gaps outer 5
+
+
+
+#border colors
+
+client.focused		#C06B00	#285577	#ffffff	#C06B00	#EEB702
+client.focused_inactive	#C06B00	#5f676a	#ffffff	#484e50	#31342E
+client.unfocused	#C06B00	#222222	#888888	#292d2e	#31342E
+#client.urgent		#2f343a	#900000	#ffffff	#900000	#900000
+#client.placeholder	#000000	#0c0c0c	#ffffff	#000000	#0c0c0c
+
+
 
 
 
@@ -298,30 +310,35 @@ focus_follows_mouse no
 
 # Open applications on specific workspaces
  assign [class="Thunderbird"] $ws4
- assign [class="chromium"] $ws2
+ assign [class="Chromium"] $ws2
  assign [class="code"] $ws3
 
 
-
+##lock button
 bindsym XF86ScreenSaver exec 'bash /home/sean/.config/sway/blurlock.sh'
 
+##toggle bluetooth
+#bindsym XF86WebCam exec ????
 
-# Set shut down, restart and locking features
-#bindsym $mod+0 mode "$mode_system"
-#set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
-#mode "$mode_system" {
-#    bindsym l exec 'bash /home/sean/.config/sway/blurlock.sh'
-#    bindsym s exec --no-startup-id i3exit suspend, mode "default"
-#    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
-#    bindsym e exec --no-startup-id i3exit logout, mode "default"
-#    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-#   bindsym r exec --no-startup-id i3exit reboot, mode "default"
-#    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
 
-    # exit system mode: "Enter" or "Escape"
-#    bindsym Return mode "default"
-#    bindsym Escape mode "default"
-#}
+##screenshot, date, add to pictures
+bindsym Print exec --no-startup-id slurp | grim -g - $(/home/sean/Pictures/screenshots)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
+
+
+set $wmexit 	swaymsg exit
+
+set $system-mode  System (l)lock, (s) suspend, (r) reboot, (End) shutdown
+mode "$system-mode" {
+    bindsym s       exec --no-startup-id systemctl suspend, 	mode "default"
+    bindsym r       exec --no-startup-id systemctl reboot, 		mode "default"
+    bindsym End     exec --no-startup-id systemctl poweroff -i, mode "default"
+    bindsym l       exec 'bash /home/sean/.config/sway/blurlock.sh',	mode "default"
+
+    bindsym Return  mode "default"
+    bindsym Escape  mode "default"
+}
+
+bindsym $mod+0          mode "$system-mode"
 
 
 #start terminal
