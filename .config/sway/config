@@ -313,6 +313,9 @@ focus_follows_mouse no
  assign [class="Chromium"] $ws2
  assign [class="code"] $ws3
 
+for_window [title=".*mpv$"] floating enable
+
+
 
 ##lock button
 bindsym XF86ScreenSaver exec 'bash /home/sean/.config/sway/blurlock.sh'
