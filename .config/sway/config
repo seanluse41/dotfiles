@@ -315,8 +315,6 @@ focus_follows_mouse no
 
 for_window [title=".*mpv$"] floating enable
 
-
-
 ##lock button
 bindsym XF86ScreenSaver exec 'bash /home/sean/.config/sway/blurlock.sh'
 
@@ -346,14 +344,17 @@ bindsym $mod+0          mode "$system-mode"
 
 #start terminal
 exec termite
-exec termite -e ncmpcpp; workspace 1
+exec termite -e ncmpcpp
 
 ## ncmpcpp global hotkeys
 
 bindsym $mod+p exec mpc toggle
 bindsym $mod+n exec mpc next
-#bindsym $mod+[ exec --no-startup-id 'pactl set-sink-volume 0 +5%'
-#bindsym $mod+] exec --no-startup-id 'pactl set-sink-volume 0 -5%'
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPrev exec mpc prev
+
+#bindsym XF86AudioNext exec --no-startup-id 'pactl set-sink-volume 0 +5%'
+#bindsym XF86AudioPrev exec --no-startup-id 'pactl set-sink-volume 0 -5%'
 
 
 include /etc/sway/config.d/*
